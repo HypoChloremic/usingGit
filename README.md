@@ -7,11 +7,13 @@ Github cheat-sheet
 If the GitHub repo has seen new commits pushed to it, while you were working locally, I would advise using:
 
 git pull --rebase
+
 git push
 
 The full syntax is:
 
 git pull --rebase origin master
+
 git push origin master
 
 That way, you would replay (the --rebase part) your local commits on top of the newly updated origin/master (or origin/yourBranch: git pull origin yourBranch).
