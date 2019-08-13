@@ -75,3 +75,5 @@ git push This is what you will use to push your code to GitHub after your initia
 git clone https://github.com/userName/project.git If you don’t have your project on the computer you’re working with this will allow you to clone (or download) the entire project into the directory you are working.
 
 git pull If you are working on the same codebase with other people, this command will allow you to pull the latest version from the remote repository and update your local version so you can work with the latest updates as their changes enter the codebase
+
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git, to change a remote origin url
