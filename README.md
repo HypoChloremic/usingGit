@@ -50,9 +50,14 @@ git add *.html If you want to add all .html files to your staging area this woul
 
 git status Shows what has already been added to the staging area and what files have been changed that need to be added to the staging area.
 
-git reset filename.extension Removes specified file from the staging area.
 
-git rm --cached filename.extension This will remove the file from the staging area and sets it to be untracked.
+
+## RESETING STUFF
+`git reset filename.extension` Removes specified file from the staging area.
+
+`git rm --cached filename.extension` This will remove the file from the staging area and sets it to be untracked.
+
+
 
 git commit -m "Description of the commit" Takes the files from your staging area and commits them to your local repository. In quotes will be a brief description of what was changed with each commit. Try to describe the commit in brief detail such as “fixed bug where user name wasn’t updating” rather than a commit message like “some changes.”
 
@@ -77,3 +82,6 @@ git clone https://github.com/userName/project.git If you don’t have your proje
 git pull If you are working on the same codebase with other people, this command will allow you to pull the latest version from the remote repository and update your local version so you can work with the latest updates as their changes enter the codebase
 
 git remote set-url origin git@github.com:USERNAME/REPOSITORY.git, to change a remote origin url
+
+
+`git diff-tree --no-commit-id --name-only -r bd61ad98` to list the inside commit
