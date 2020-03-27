@@ -90,3 +90,8 @@ The first thing to do would be to identify the files that are too big:
 1. `git status`
 2. `git rm --cached *.extension of the file` - note that by using `*` it is possible to find all files with that file extension, irrespective of path, as git deals with that. 
 3. `git reset HEAD^` will then remove the latest commit
+
+
+## "Changes not staged for commit"
+if on `git status` or otherwise, the above notice is produced, one can do the following to correct that:
+`git add -a` to commit all changes!
