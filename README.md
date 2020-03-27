@@ -87,3 +87,5 @@ touch .gitignore This will create a file called .gitignore. You can open that fi
 
 
 `git diff-tree --no-commit-id --name-only -r bd61ad98` to list the inside commit
+
+`git reset HEAD^` to remove the latest commit from the staging area
