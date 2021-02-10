@@ -95,3 +95,26 @@ The first thing to do would be to identify the files that are too big:
 ## "Changes not staged for commit"
 if on `git status` or otherwise, the above notice is produced, one can do the following to correct that:
 `git add -a` to commit all changes!
+
+## Changing from HTTPs to ssh
+
+Open Terminal.
+Change the current working directory to your local project.
+List your existing remotes in order to get the name of the remote you want to change.
+
+```$ git remote -v
+> origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+> origin  git@github.com:USERNAME/REPOSITORY.git (push)
+```
+Change your remote's URL from SSH to HTTPS with the git remote set-url command.
+
+`$ git remote set-url origin https://github.com/USERNAME/REPOSITORY.git`
+Verify that the remote URL has changed.
+
+```
+$ git remote -v
+# Verify new remote URL
+> origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+> origin  https://github.com/USERNAME/REPOSITORY.git (push)
+```
+
