@@ -144,3 +144,8 @@ $ git remote -v
 > origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
 > origin  git@github.com:USERNAME/REPOSITORY.git (push)
 ```
+
+
+## Large file storage and commit 
+Something called git lfs (large file storage): 
+https://git-lfs.github.com/
