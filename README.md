@@ -149,3 +149,8 @@ $ git remote -v
 ## Large file storage and commit 
 Something called git lfs (large file storage): 
 https://git-lfs.github.com/
+
+
+## Removing files from git history even if deleted
+```git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch logs/debug.log" HEAD```
+Say we would like to remove a debug.log file, then we can use the above command to erase it from the history, if it contains sensitivte information
