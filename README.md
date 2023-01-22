@@ -154,3 +154,143 @@ https://git-lfs.github.com/
 ## Removing files from git history even if deleted
 ```git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch logs/debug.log" HEAD```
 Say we would like to remove a debug.log file, then we can use the above command to erase it from the history, if it contains sensitivte information
+
+
+# Production staging and development workflow
+I have a programming project, and use git. Give me all the commands from commit to branch for a good workflow for development staging and production development
+Here is a good workflow for using Git for development, staging, and production:
+
+Start by committing your changes to your local repository:
+Copy code
+git add .
+git commit -m "Commit message describing changes"
+Push your changes to the development branch:
+Copy code
+git push origin development
+Once your changes have been reviewed and tested, merge them into the staging branch:
+Copy code
+git checkout staging
+git merge development
+Finally, push your changes to the production branch:
+Copy code
+git push origin production
+If you find issues or bugs in the production version, you can always create new branch from production, fix the issues and then merge it back to production.
+Copy code
+git checkout -b hotfix
+#Fix the issues
+git add .
+git commit -m "Fixed production issues"
+git checkout production
+git merge hotfix
+git push origin production
+It's important to keep in mind that this is a basic workflow and can be adjusted to fit the specific needs of your project.
+
+
+
+
+Ali Rassolie
+Currently I only have one main branch, how would I setup all of these branches
+If you currently only have one main branch, you can set up additional branches by following these steps:
+
+Create a new branch for development:
+Copy code
+git branch development
+Switch to the development branch:
+Copy code
+git checkout development
+Make some changes and commit them:
+Copy code
+git add .
+git commit -m "Initial commit for development branch"
+Create a new branch for staging:
+Copy code
+git branch staging
+Switch to the staging branch:
+Copy code
+git checkout staging
+Create a new branch for production:
+Copy code
+git branch production
+switch to the production branch:
+Copy code
+git checkout production
+8.You can now work on these branches independently and merge them to the main branch when ready.
+
+Copy code
+git checkout development
+#make some changes
+git add .
+git commit -m "Development changes"
+git checkout main
+git merge development
+It's important to note that the main branch could be any name that you like, it is not necessary to be called "main", you can use any name that you want.
+It's also important to note that you can do this steps in one command by using
+
+Copy code
+git checkout -b development
+This command will create and switch to the new branch at the same time.
+
+
+
+
+Ali Rassolie
+how do I list all of the branches
+You can list all of the branches in your local repository by using the command:
+
+Copy code
+git branch
+This command will show all of the branches in your local repository, with the current branch marked by an asterisk (*).
+
+You can also list all of the branches in your remote repository by using the command:
+
+Copy code
+git branch -a
+This command will show all of the branches in your remote repository in addition to your local branches, with remote branches prefixed by "remotes/origin/".
+
+To list all branches in your local and remote repository with the last commit date, you can use:
+
+Copy code
+git branch -av
+This command will show all branches and the last commit date for each one, and it will also indicate the current branch with an asterisk (*)
+
+You can also use this command to list branches in remote repositories:
+
+Copy code
+git ls-remote --heads origin
+This command will list all branches in the remote repository "origin"
+
+It's important to note that the name "origin" could be different depending on the remote repository that you have configured.
+
+
+
+
+Ali Rassolie
+I have a nextjs vercel project, one production environment and one staging environment. The staging environment needs to be linked to a staging branch, how do I create this
+Here's one way to set up a staging environment for your Next.js Vercel project that is linked to a staging branch:
+
+Create a new branch for staging:
+Copy code
+git branch staging
+Switch to the staging branch:
+Copy code
+git checkout staging
+Make some changes and commit them:
+Copy code
+git add .
+git commit -m "Initial commit for staging branch"
+Push the staging branch to your remote repository:
+Copy code
+git push origin staging
+Go to your Vercel dashboard and create a new project for your staging environment.
+
+In the settings, under the Git Integration section, select "Add Git Provider" and link your remote repository.
+
+Select the staging branch from the dropdown list under the "Linked Branch" field.
+
+Set up your environment variables and build settings as needed.
+
+Press deploy, your staging environment will be deployed and will be linked to your staging branch, and every time you push a new change to the staging branch it will be automatically deployed to your staging environment.
+
+It's important to note that the steps to link a branch in Vercel may vary depending on the version of the platform and the integrations you have set up. But the basic idea is that you should link the branch you want to deploy to the environment you want.
+
+Also, it's important to keep in mind that you should have a different set of environment variables and configurations for each environment (production and staging) to avoid unexpected behaviors.
